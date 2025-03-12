@@ -61,22 +61,23 @@ interface FruitByTaste {
 function fruitByTaste(fruits: Fruit[]): FruitByTaste {
   // Write your code here...
   const Taste: String[] = [];
+  let FruitTasteList: FruitByTaste = {};
   fruits.forEach((fruit) => {
-    if (!Taste.includes(fruit.taste)) {
-      Taste.push(fruit.taste);
+    if (!FruitTasteList[fruit.taste]) {
+      FruitTasteList[fruit.taste] = [fruit.name];
+    } else {
+      FruitTasteList[fruit.taste].push(fruit.name);
     }
   });
 
-  let FruitTasteList: FruitByTaste[] = [];
-
-  fruits.forEach((fruit) => {
-    if (fruit.taste === Taste[0])
-      FruitTasteList[`${Taste[0]}`].push(fruit.name);
-    else if (fruit.taste === Taste[1])
-      FruitTasteList[`${Taste[1]}`].push(fruit.name);
-    else FruitTasteList[`${Taste[2]}`].push(fruit.name);
-  });
-  return {}; // replace empty object with what you see is fit
+  // fruits.forEach((fruit) => {
+  //   if (fruit.taste === Taste[0])
+  //     FruitTasteList[`${Taste[0]}`].push(fruit.name);
+  //   else if (fruit.taste === Taste[1])
+  //     FruitTasteList[`${Taste[1]}`].push(fruit.name);
+  //   else FruitTasteList[`${Taste[2]}`].push(fruit.name);
+  // });
+  return FruitTasteList; // replace empty object with what you see is fit
 }
 
 export { fruitByTaste, FruitByTaste };
