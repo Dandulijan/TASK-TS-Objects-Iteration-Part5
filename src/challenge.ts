@@ -67,13 +67,15 @@ function fruitByTaste(fruits: Fruit[]): FruitByTaste {
     }
   });
 
-  const FruitTasteList: FruitByTaste[] = [];
+  let FruitTasteList: FruitByTaste[] = [];
 
-  fruits.forEach(fruit=>{if(fruit.taste === Taste[0])
-    FruitTasteList{
-      Taste[0]: [fruit.name],
-    } 
-  })
+  fruits.forEach((fruit) => {
+    if (fruit.taste === Taste[0])
+      FruitTasteList[`${Taste[0]}`].push(fruit.name);
+    else if (fruit.taste === Taste[1])
+      FruitTasteList[`${Taste[1]}`].push(fruit.name);
+    else FruitTasteList[`${Taste[2]}`].push(fruit.name);
+  });
   return {}; // replace empty object with what you see is fit
 }
 
