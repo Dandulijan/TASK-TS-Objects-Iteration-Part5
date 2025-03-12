@@ -60,7 +60,20 @@ interface FruitByTaste {
  */
 function fruitByTaste(fruits: Fruit[]): FruitByTaste {
   // Write your code here...
+  const Taste: String[] = [];
+  fruits.forEach((fruit) => {
+    if (!Taste.includes(fruit.taste)) {
+      Taste.push(fruit.taste);
+    }
+  });
 
+  const FruitTasteList: FruitByTaste[] = [];
+
+  fruits.forEach(fruit=>{if(fruit.taste === Taste[0])
+    FruitTasteList{
+      Taste[0]: [fruit.name],
+    } 
+  })
   return {}; // replace empty object with what you see is fit
 }
 
